@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+ <link href="{% static 'css/404.css' %}" rel="stylesheet">
+	<div id="notfound" style="background-color: rgb(255, 255, 255);">
+		<div class="notfound"> 
+			<div class="notfound-404">
+				<h2 class="text-dark">Oops!</h2>
+				<h3 class="text-dark">404 - The Page can't be found</h3>
+			</div>
+			<a href="{% url 'home:home' %}">Go TO Homepage</a>
+		</div>
+	</div>
+
+{% endblock content %}

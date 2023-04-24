@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %} 
+{% load static %}
+
+{%block content %}
+
+<div class="container-fluid" style="display: flex;justify-content: center; align-items: center;height: 100vh !important; width: 100% !important;background: url(/static/image/bg\ logout.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;flex-direction: column;">
+<h1 class="text-dark">
+    {% if username %}
+    Hi {{username}}, You've been Logged out
+    {% else %}
+    You have to login first
+    {% endif %}
+<h5 class="text-light mr-2 text-dark">click This link to Login again <a href="{% url 'home:login' %}" class="text-light">Login</a></h5>
+</div>
+
+{% endblock content%}

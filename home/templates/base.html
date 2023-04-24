@@ -1,0 +1,96 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>website</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="#" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dangrek&family=Lobster+Two:ital,wght@1,700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-md navbar-expand-lg navbar-light bg-info"
+      id="navbar"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="{% static 'image/logo.png' %}"
+            style="height: 40px; width: 40px"
+          /><i class="main" style="color: whitesmoke"><sub>acro</sub></i></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:about' %}" target="_blank">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">ContactUs</a>
+            </li>
+            <div class="button-home ">
+              <button class="btn my-sm-0 my-10 p-0">
+                {% if username %}
+                <a href="{% url 'home:logout' %}" type="button">Logout</a>
+                <a href="{% url 'home:profile' %}"><i class="bi bi-person-circle text-dark" style="font-size: 25px !important;"></i></a>
+                {% else %}
+                <a href="{% url 'home:login' %}" type="button">Login</a>
+                <a href="{% url 'home:register' %}" type="button">signup</a>
+                {% endif %}
+
+              </button>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+      {% block content %} 
+        
+      {% endblock content %}
+      
+  
+    </div>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script defer src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

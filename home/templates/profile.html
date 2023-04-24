@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <div class="container-fluid" style="background: url('/static/image/profile.jpg');height: 100vh !important;width: 100% !important;">
+    <div class="profiles" style="display: flex !important;justify-content: center !important;align-items: center !important;flex-direction: column;height: 100vh !important;width: 100% !important;">
+      {% if username and email %} 
+      <h3 class="text-light">{{user.username}}</h3>
+      <h3 class="text-light">{{user.email}}</h3>
+      {% elif username %}
+      <h3 class="text-light">Sorry, your name is "{{user.username}}" and Your email not registerd</h3>
+      {% else %}
+      <h3 class="text-light">You have to <a href="{url home:login}">login</a> first</h3>
+      {% endif %}
+    </div>   
+  </div>
+
+{% endblock content %}

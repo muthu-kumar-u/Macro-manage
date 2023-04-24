@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{%  static 'css/base.css' %}" >
+<section id="signup">
+        <div class="Signup-container">
+          <div class="SignUp">  
+              {% if messages %} {% for message in messages %}
+              <div class="alert alert-{{message.tags}} alert-dismissible" style="width:fit-content !important;color: rgb(213, 8, 8) !important; background-color: white !important;">{{message}}<button type="button" class="btn-close" style="height: 10px !important; width: 10px !important; display: flex !important; flex-direction: row-reverse !important;" aria-label="Close" onclick="this.parentElement.style.display='none' "></button>
+              </div>
+              <div class="row container-sign">
+                {% endfor %} {% endif %}
+                <form action="{% url 'home:register' %}" id="signup_user" method="POST"  autocomplete="off">
+                  {% csrf_token %}
+                  <h1 class="Sign-H text-center text-light">Sign Up</h1>
+                  
+                    <legend class="border-bottom mb-4 mt-1 text-light"></legend>
+                    {{ form.as_p}}
+                  
+                  <div class="signup_submit" style="display: flex;justify-content: center;align-items: center; margin-top: 15px;margin-bottom: 10px !important;">
+                    <button class="btn btn-primary btn-md" style="width: 200px; border-radius: 7px;margin-right: 10px; " id="btn-SignUp" type="submit">Sign Up</button>
+               <p class="mt-2" style="font-size: 13px !important;color: #fff !important;">Already have an account?
+                <a href="{% url 'home:login' %}" class="link-2" style="font-size: 14px;color: #fff;">Login </a>
+                 </p>
+               </div> 
+              </form>
+
+              </div>
+            </div>
+            </div>
+          </div>
+    </section>
+ {% endblock content %}
+
