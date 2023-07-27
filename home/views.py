@@ -3,8 +3,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib import auth
+from home.forms import UsersForm
+from home.models import Users
 from django.contrib import messages
-from home.forms import UserRegistrationForm
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 from django.contrib.auth.hashers import make_password
@@ -28,18 +29,18 @@ def register(request):
        user_email = request.POST.get('email')
        password = request.POST.get('password')
 
-       form = UserRegistrationForm(request.POST)
+       form = UsersForm(request.POST)
        if form.is_valid():
            form.save()
            username = form.cleaned_data.get('username')
            messages.success(request,f'Hi {username},  You are successfully create your account')
-           return redirect('home:home',{'username':username})
+           return redirect('/',{'username':username})
        else:
            print(form.errors)
            messages.error(request,'Please enter the correct details')
            return redirect('home:register')       
     else:   
-       form = UserRegistrationForm()
+       form = UsersForm()
        return render(request,'register.html',{'form':form})
 
 

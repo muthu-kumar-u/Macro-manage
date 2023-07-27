@@ -1,5 +1,4 @@
 from django.db import models
-from home.forms import UserRegistrationForm
 # Create your models here.
 
 

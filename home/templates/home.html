@@ -1,449 +1,96 @@
-
-{% extends 'base.html' %}
 {% load static %}
- 
 
-<!-- <div class="container"> -->
-  <!-- </div> -->
-  {% block content %}
-  
-  <section id="home">  {% if messages %} {% for message in messages %}
-  <div class="alert alert-{{message.tags}} alert-dismissible" style="width:fit-content !important;">{{message}}<button type="button" class="btn-close" style="height: 10px !important; width: 10px !important; display: flex !important; flex-direction: row-reverse !important;" aria-label="Close" onclick="this.parentElement.style.display='none' "></button>
-  </div>
-  {% endfor %} {% endif %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>website</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <h1 class="text-center col-10">
-      We do not remember the days,but rather the "Moments"
-    </h1>
-    <a class="btn btn-info no-outline mt-2" type="button" href="login.html"
-      >Get Started</a
+    <link rel="shortcut icon" href="#" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dangrek&family=Lobster+Two:ital,wght@1,700&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-md navbar-expand-lg navbar-light bg-info"
+      id="navbar"
     >
-  </section>
-  <!-----------------services-------------------------->
-  <section id="Services">
-    <div class="container">
-      <div class="row intro">
-        <div class="col-lg-6 col-md-6 col-sm-10 col-12 p-lg-3 mt-2">
-          <img src="{% static 'image/our.jpg' %}" class="img-fluid" id="plan" />
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-10 col-12 p-lg-5 p-2">
-          <h1>WE ARE #1</h1>
-          <br />
-          <p class="para_about text-dark ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            porro quibusdam optio eius, iste tempore nesciunt obcaecati odit,
-            non cum accusamus quam? Vel dignissimos saepe, accusamus
-            recusandae hic possimus ea veritatis voluptas ratione perferendis.
-            Consequatur suscipit architecto animi nihil aspernatur iure
-            molestiae id mollitia culpa dolorem eligendi ipsam fugit minima
-            fugiat obcaecati nulla enim esse, blanditiis odio maiores
-            distinctio qui? Beatae, qui! Cum officiis quae
-          </p>
-          <a href="#booking" class="enroll_btn"
-            ><button type="submit" class="btn btn-info" onclick="scroll()">
-              Enroll now
-            </button></a
-          >
-        </div>
-      </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="{% static 'image/logo.png' %}"
+            style="height: 40px; width: 40px"
+          /><i class="main" style="color: whitesmoke"><sub>acro</sub></i></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home:about' %}" target="_blank">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">ContactUs</a>
+            </li>
+            <div class="button-home ">
+              <button class="btn my-sm-0 my-10 p-0">
+                {% if username %}
+                <a href="{% url 'home:logout' %}" type="button">Logout</a>
+                <a href="{% url 'home:profile' %}"><i class="bi bi-person-circle text-dark" style="font-size: 25px !important;"></i></a>
+                {% else %}
+                <a href="{% url 'home:login' %}" type="button">Login</a>
+                <a href="{% url 'home:register' %}" type="button">signup</a>
+                {% endif %}
 
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-10 col-12">
-          <div id="center">
-            <h1>Birthday</h1>
-            <br />
-            <p class="para_about text-dark">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              debitis quibusdam temporibus consequatur fugiat nobis non
-              cupiditate sapiente, pariatur voluptate velit, illum laudantium
-              quisquam possimus harum? Provident illo ad aut maiores ullam
-              possimus explicabo, quod atque dolorum reiciendis et aliquid
-              amet voluptatibus consequuntur quisquam dicta dolor eveniet
-              nulla eius, officia ipsam! Repellendus porro architecto corrupti
-              adipisci? Esse, vero. Debitis aliquam reiciendis eaque
-              consequatur, molestiae corrupti ipsam nesciunt modi et expedita,
-            </p>
-            <br />
-            <a href="#booking" onclick="scroll()">
-              <button class="btn btn-info mt-1">Enroll now</button></a
-            >
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-10 col-md-6 col-12 Intro">
-          <img src="{% static 'image/birthday.jpg' %}" class="img-fluid" id="plan1" />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-12 col-sm-10 p-lg-3 p-1">
-          <img src="{% static 'image/wedding.jpg' %}" class="img-fluid" id="plan2" />
-        </div>
-        <div class="col-lg-6 col-md-6 col-12 col-sm-10 p-lg-5 p-2">
-          <h1>Wedding</h1>
-          <br />
-          <p class="para_about text-dark">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            porro quibusdam optio eius, iste tempore nesciunt obcaecati odit,
-            non cum accusamus quam? Vel dignissimos saepe, accusamus
-            recusandae hic possimus ea veritatis voluptas ratione perferendis.
-            Consequatur suscipit architecto animi nihil aspernatur iure
-            molestiae id mollitia culpa dolorem eligendi ipsam fugit minima
-            fugiat obcaecati nulla enim esse, blanditiis odio maiores
-            distinctio qui? Beatae, qui! Cum officiis quae a in possimus et
-            alias tempora nobis ab. Totam, perspiciatis ad omnis sapiente
-          </p>
-          <a href="#booking" onclick="scroll()"
-            ><button class="btn btn-info" style="padding-top: 10px">
-              Enroll now
-            </button></a
-          >
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-10 col-12">
-          <div id="center3">
-            <h1>VIP Party</h1>
-            <br />
-            <p class="para_about text-dark">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              debitis quibusdam temporibus consequatur fugiat nobis non
-              cupiditate sapiente, pariatur voluptate velit, illum laudantium
-              quisquam possimus harum? Provident illo ad aut maiores ullam
-              possimus explicabo, quod atque dolorum reiciendis et aliquid
-              amet voluptatibus consequuntur quisquam dicta dolor eveniet
-              nulla eius, officia ipsam! Repellendus porro architecto corrupti
-              adipisci? Esse, vero. Debitis aliquam reiciendis eaque
-              consequatur, molestiae corrupti ipsam nesciunt modi et expedita,
-              incidunt numquam est,
-            </p>
-            <br />
-            <a href="#booking" onclick="scroll()"
-              ><button class="btn btn-info mt-1">Enroll now</button></a
-            >
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-10 col-md-6 col-12">
-          <img src="{% static 'image/vip party.jpg' %}" class="img-fluid" id="plan3" />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-12 col-sm-10 p-lg-3 p-1">
-          <img src="{% static 'image/conferance.jpg' %}" class="img-fluid" id="plan4" />
-        </div>
-        <div class="col-lg-6 col-md-6 col-12 col-sm-10 p-lg-5 p-2">
-          <h1>Conferance</h1>
-          <br />
-          <p class="para_about text-dark">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            porro quibusdam optio eius, iste tempore nesciunt obcaecati odit,
-            non cum accusamus quam? Vel dignissimos saepe, accusamus
-            recusandae hic possimus ea veritatis voluptas ratione perferendis.
-            Consequatur suscipit architecto animi nihil aspernatur iure
-            molestiae id mollitia culpa dolorem eligendi ipsam fugit minima
-            fugiat obcaecati nulla enim esse, blanditiis odio maiores
-            distinctio qui? Beatae, qui! Cum officiis quae a in possimus et
-            alias tempora nobis ab.
-          </p>
-          <a href="#booking" onclick="scroll()"
-            ><button class="btn btn-info">Enroll now</button></a
-          >
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 col-lg-6 col-md-6 col-sm-10">
-          <div id="center5">
-            <h1>Public Party</h1>
-            <br />
-            <p class="para_about text-dark">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-              debitis quibusdam temporibus consequatur fugiat nobis non
-              cupiditate sapiente, pariatur voluptate velit, illum laudantium
-              quisquam possimus harum? Provident illo ad aut maiores ullam
-              possimus explicabo, quod atque dolorum reiciendis et aliquid
-              amet voluptatibus consequuntur quisquam dicta dolor eveniet
-              nulla eius, officia ipsam! Repellendus porro architecto corrupti
-              adipisci? Esse, vero. Debitis aliquam reiciendis eaque
-              consequatur, molestiae corrupti ipsam nesciunt modi et expedita,
-              incidunt numquam est, ab recusandae! Doloribus tempore
-              perspiciatis repudiandae accusamus consectetur ex?
-            </p>
-            <br />
-            <a href="#booking" onclick="scroll()"
-              ><button class="btn btn-info mt-1">Enroll now</button></a
-            >
-          </div>
-        </div>
-        <div class="col-lg-6 col-sm-10 col-md-6 col-12">
-          <img src="{% static 'image/party.jpg' %}" class="img-fluid" id="plan5" />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-12 col-sm-10 p-lg-3 p-1">
-          <img
-            src="{% static 'image/dj.jpg' %}"
-            class="img-fluid"
-            id="plan6"
-            style="height: 550px"
-          />
-        </div>
-        <div class="col-lg-6 col-md-6 col-12 col-sm-10 p-lg-5 p-2">
-          <h1>DJ Party</h1>
-          <br />
-          <p class="para_about text-dark">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-            porro quibusdam optio eius, iste tempore nesciunt obcaecati odit,
-            non cum accusamus quam? Vel dignissimos saepe, accusamus
-            recusandae hic possimus ea veritatis voluptas ratione perferendis.
-            Consequatur suscipit architecto animi nihil aspernatur iure
-            molestiae id mollitia culpa dolorem eligendi ipsam fugit minima
-            fugiat obcaecati nulla enim esse, blanditiis odio maiores
-            distinctio qui? Beatae, qui! Cum officiis quae a in possimus et
-            alias tempora nobis ab. Totam, perspiciatis ad omnis sapiente
-            laborum pariatur minima iure itaque et, fugit eius ut laboriosam
-            porro beatae est repellendus. Neque nisi, optio doloribus
-            voluptatem inventore cumque? Necessitatibus?
-          </p>
-          <a href="#booking" onclick="scroll()"
-            ><button class="btn btn-info">Enroll now</button></a
-          >
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!----------------Booking details-------------------->
-
-  <section id="booking">
-    <div class="container">
-      <div id="pass">
-        <h1>BOOKING DETAILS</h1>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-12">
-          <form id="form" action="" method="post" autocomplete="off">
-            <p
-              data-name="success_message"
-              id="success"
-              class="text-light"
-              role="alert"
-            >
-              <i class="fa fa-close icon_close"></i>
-            </p>
-            <div class="form-group">
-              <input
-                class="form-control"
-                onkeydown="handleEnter(event)"
-                type="text"
-                data-name="Name"
-                placeholder="Enter your name"
-                maxlength="10"
-                name="name"
-                id="name"
-              />
-              <p></p>
-            </div>
-            <div class="form-group">
-              <input
-                class="form-control"
-                onkeydown="handleEnter(event)"
-                type="text"
-                placeholder="Enter your Email"
-                name="email"
-                id="email"
-                data-name="email"
-              />
-              <p></p>
-            </div>
-            <div class="form-group">
-              <input
-                class="form-control"
-                onkeydown="handleEnter(event)"
-                type="text"
-                placeholder="Type of event"
-                name="Event"
-                id="t-Event"
-                data-name="Event"
-              />
-              <p></p>
-            </div>
-            <div class="form-group">
-              <input class="form-control" onkeydown="handleEnter(event)"
-              type="text" pattern="^\d{10}$" placeholder="Mobile Number"
-              name="number" id="number" data-name="number" pattern =
-              /^[6789]\d{9}$/ minlength=10>
-              <p></p>
-            </div>
-            <div class="form-group">
-              <input
-                class="form-control"
-                onkeydown="handleEnter(event)"
-                type="number"
-                placeholder="Number of attend"
-                name="attend"
-                id="attend"
-                data-name="attend"
-              />
-              <p></p>
-            </div>
-            <div class="col-6">
-              <div class="form-group">
-                <input
-                  class="form-control"
-                  onkeydown="handleEnter(event)"
-                  type="date"
-                  placeholder="Event date"
-                  name="date"
-                  id="date"
-                  data-name="date"
-                />
-                <p></p>
-              </div>
-            </div>
-            <div id="submit">
-              <button
-                type="submit"
-                class="btn btn-outline-primary text-light"
-              >
-                Submit
               </button>
             </div>
-          </form>
-        </div>
-        <div class="col-lg-6 col-md-6 col-12">
-          <div class="plan7">
-            <p class="display-3 text-light text-center">
-              let we know about you ! for keep in Touch
-            </p>
-          </div>
+          </ul>
         </div>
       </div>
+    </nav>
+
+
+      {% block content %} 
+        
+      {% endblock content %}
+      
+  
     </div>
-  </section>
-
-<!----------------footer---------------->
-
-  <footer class="new_footer_area bg_color" id="footer">
-    <div class="new_footer_top">
-        <div class="container">
-                <div class="col-lg-3 col-md-6 mb-2">
-                    <div
-              class="f_widget company_widget wow fadeInLeft"
-              data-wow-delay="0.2s"
-              style="
-                visibility: visible;
-                animation-delay: 0.2s;
-                animation-name: fadeInLeft;
-                "
-            >
-              <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-              <form
-                id="Form2"
-                action="#"
-                class="f_subscribe_two mailchimp no-outline"
-                method="get"
-                autocomplete="off"
-              >
-                <div class="form-group2">
-                  <input
-                  class="form-control"
-                  type="email"
-                    placeholder="Enter your Email"
-                    name="email2"
-                    id="email_subscribe"
-                    data-name="email"
-                    />
-                  <p></p>
-                </div>
-                <button
-                  class="btn btn_get btn_get_two btn btn-outline-primary btn-sm"
-                  type="submit"
-                  style="
-                    background-color: #5e2ced;
-                    color: #ffffff;
-                    width: 50%;
-                    border-radius: 5px;
-                  "
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 ml-3 pl-2">
-              <div
-              class="f_widget about-widget pl_70 wow fadeInLeft"
-              data-wow-delay="0.6s"
-              style="
-                visibility: visible;
-                animation-delay: 0.6s;
-                animation-name: fadeInLeft;
-              "
-            >
-              <h3 class="f-title f_600 t_color f_size_18">Help</h3>
-              <ul class="list-unstyled f_list mb-2">
-                <li><a href="{% url 'home:about' %}" target="_blank">FAQ</a></li>
-                <li>
-                  <a href="{% url 'home:error_404' %}" target="_blank">Term &amp; conditions</a>
-                </li>
-                <li><a href="{% url 'home:error_404' %}" target="_blank">Reporting</a></li>
-                <li><a href="{% url 'home:error_404' %}">Support Policy</a></li>
-                <li><a href="{% url 'home:about' %}">Privacy</a></li>
-              </ul>
-            </div>
-        </div>
-          
-          <div class="col-lg-3 col-md-6">
-            <div
-              class="f_widget social-widget pl_70 wow fadeInLeft"
-              data-wow-delay="0.8s"
-              style="
-                visibility: visible;
-                animation-delay: 0.8s;
-                animation-name: fadeInLeft;
-              "
-            >
-              <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
-              <div class="f_social_icon">
-                  <a href="https://about.meta.com/" target="_blank" type="text"
-                  ><i class="bi bi-meta"></i
-                ></a>
-                <a
-                  href="https://twitter.com/Twitter"
-                  target="_blank"
-                  type="text"
-                  ><i class="bi bi-twitter"></i
-                    ></a>
-                <a href="https://in.linkedin.com/" target="_blank" type="text"
-                  ><i class="bi bi-linkedin"></i
-                ></a>
-                <a href="https://github.com/" target="_blank" type="text"
-                  ><i class="bi bi-github"></i
-                ></a>
-              </div>
-            </div>
-        </div>
-    </div>
-      <div class="footer_bg">
-        <div class="footer_bg_one"></div>
-        <div class="footer_bg_two"></div>
-      </div>
-    </div>
-    <div class="footer_bottom">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-7">
-                    <p class="mb-0 f_400">© Macro Org... 2023 All rights reserved.</p>
-                </div>
-          <div class="col-lg-6 col-sm-5 text-right"></div>
-        </div>
-      </div>
-    </div>
-</footer> 
-
-{% endblock %}
-
-
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script defer src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
